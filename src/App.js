@@ -1,13 +1,30 @@
 import './App.css';
+import { BrowserRouter as Router,Switch, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import Contato from './pages/Contato';
+import Empresa from './pages/Empresa';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <h1>Olá React</h1>
-      <p>
-          Meu primeiro app.
-        </p>
-    </div>
+    <Router>
+      <Navbar></Navbar>
+      <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
+        <Route path='/empresa'>
+          <Empresa/>
+        </Route>
+        <Route path='/contato'>
+          <Contato/>
+        </Route>
+      </Switch>
+      <Footer/>
+    </Router>
   );
 }
 
